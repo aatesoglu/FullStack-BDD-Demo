@@ -1,129 +1,45 @@
-# 🧩 Ruby on Rails 8 – API + Hello World Uygulaması
+FullStack-BDD-Demo
+Ruby on Rails 8 API, Next.js (React) frontend ve Cypress (BDD/Cucumber) test altyapısı kullanılarak geliştirilmiş tam yığın (Full Stack) örnek bir projedir.
+8 farklı model (Users, Projects, Scales, Scale Items, Surveys, Analyses, Credit Transactions, Responses) yönetilmekte ve uçtan uca test senaryoları otomatik olarak çalıştırılmaktadır.
 
-Bu proje, **Ruby on Rails 8** kullanılarak geliştirilmiş bir **API tabanlı web uygulamasıdır.**  
-Uygulama hem basit bir **“Hello World” arayüzü**, hem de 8 modelden oluşan **RESTful API yapısını** içerir.  
-Amaç, bir Rails projesinde hem klasik MVC yapısını hem de API mantığını birlikte göstermektir.
-
----
-
-## 🧱 Teknolojiler ve Yapı
-
-- **Ruby on Rails 8.0**
-- **SQLite3** (geliştirme ortamı için)
-- **Active Record** ORM yapısı
-- **RESTful Controller** mimarisi
-- **JSON tabanlı veri dönüşleri**
-
----
-## 🚀 Kurulum ve Çalıştırma
-
-1.Depoyu klonla
-git clone https://github.com/aatesoglu/Ruby-on-Rails-8-Hello-World-ve-API-Yap-s-.git
-
-2. Gerekli Bağımlılıkları Yükle
+🚀 Özellikler
+Rails 8 tabanlı RESTful API (/api/v1 namespace)
+Next.js 13+ App Router ile frontend arayüzü
+Cypress + Cucumber (BDD/Gherkin) test senaryoları
+FFmpeg ile test videolarını birleştirme (isteğe bağlı)Rails–Next.js tam entegrasyon yapısı
+🧩 Teknoloji Yığını
+Katman	Teknoloji
+Backend	Ruby on Rails 8 (REST API)
+Frontend	Next.js 13+, React
+Test	Cypress, Cucumber, Gherkin
+Video İşleme	FFmpeg (isteğe bağlı)
+🧰 Kurulum
+1️⃣ Rails API
 bundle install
+--
+# 🔧 Frontend Kurulumu
+cd frontend
+npm install
+--
+# ▶️ Çalıştırma
 
-3. Veritabanını Oluştur ve Migrasyonları Çalıştır
-rails db:create
-rails db:migrate
-
-# Sunucuyu başlat
-rails server
-# veya
+# Rails API (http://localhost:3000)
 rails s
-```
+--
+# Frontend (http://localhost:3001)
+cd frontend
+npm run dev
+--
+# 🧪 Testler
 
-### 5. Tarayıcıda Görüntüle
-```
-http://localhost:3000
-```
+# Tüm testleri çalıştırmak için
+cd e2e-tests
+npx cypress run
+--
+# Cypress GUI (görsel test arayüzü)
+npx cypress open
+--
+# 📝 Notlar
 
-> **📌 Not:** Eğer `launchy` hatası alırsan:
-> ```bash
-> bundle install --gemfile ./Gemfile
-> ```
-
----
-
-## 🧠 Teknik Bilgiler
-
-- **Ruby on Rails 8:** MVC mimarisiyle geliştirilmiş modern web framework
-- **Active Record (ORM):** Ruby nesneleriyle veritabanı tablolarını eşleştirir
-- **Controller:** `Api::V1::ScaleItemsController` dosyası CRUD işlemlerini yürütür
-- **View (Hello World):** `welcome#index` rotası üzerinden basit metin döndürür
-- **Route:** `config/routes.rb` dosyasında hem root hem API endpoint'leri tanımlıdır
-
----
-
-## ⚙️ API Yapısı
-
-Proje, `app/controllers/api/v1/` dizininde bulunan 8 adet model tabanlı controller içerir.
-
-### Temel API Yolu
-```
-/api/v1/
-```
-
-### Mevcut Modeller
-
-- `User`
-- `Project`
-- `Scale`
-- `Survey`
-- `Analysis`
-- `CreditTransaction`
-- `Response`
-- `ScaleItem`
-
-Her model, ilişkili tabloyla etkileşim kurar ve JSON formatında veri döndürür.
-
----
-
-## 🧩 Örnek Endpoint (ScaleItem)
-
-| Method | Endpoint | Açıklama |
-|--------|----------|----------|
-| `GET` | `/api/v1/scale_items` | Tüm öğeleri listeler |
-| `POST` | `/api/v1/scale_items` | Yeni öğe oluşturur |
-| `PUT` | `/api/v1/scale_items/:id` | Belirli bir öğeyi günceller |
-| `DELETE` | `/api/v1/scale_items/:id` | Bir öğeyi siler |
-
----
-
-## 🧱 Proje Dizin Yapısı
-```
-myapp/
-│
-├── app/
-│   ├── controllers/
-│   │   ├── api/v1/
-│   │   │   ├── users_controller.rb
-│   │   │   ├── projects_controller.rb
-│   │   │   ├── scales_controller.rb
-│   │   │   ├── surveys_controller.rb
-│   │   │   ├── analyses_controller.rb
-│   │   │   ├── credit_transactions_controller.rb
-│   │   │   ├── responses_controller.rb
-│   │   │   └── scale_items_controller.rb
-│   │   └── welcome_controller.rb
-│   ├── models/
-│   │   ├── user.rb
-│   │   ├── project.rb
-│   │   ├── scale.rb
-│   │   ├── survey.rb
-│   │   ├── analysis.rb
-│   │   ├── credit_transaction.rb
-│   │   ├── response.rb
-│   │   └── scale_item.rb
-│   └── views/welcome/
-│       └── index.html.erb   ← "Hello World" sayfası
-│
-├── db/migrate/              ← SQLite3 uyumlu migration dosyaları
-├── config/routes.rb         ← API + arayüz yönlendirmeleri
-└── README.md
-
-## 💡 Notlar
-
--Uygulama geliştirme ortamında SQLite3 veritabanı kullanır.
--Üretim ortamında PostgreSQL gibi kalıcı bir veritabanı tercih edilmelidir.
--API tüm yanıtları JSON formatında döndürür.
+# e2e-tests/.gitignore dosyası, cypress/videos ve cypress/screenshots klasörlerini hariç tutar.
+# Her model için örnek navigation, listeleme ve “New” sayfaları bulunmaktadır.
