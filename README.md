@@ -1,21 +1,43 @@
-FullStack-BDD-Demo
-Ruby on Rails 8 API, Next.js (React) frontend ve Cypress (BDD/Cucumber) test altyapısı kullanılarak geliştirilmiş tam yığın (Full Stack) örnek bir projedir.
-8 farklı model (Users, Projects, Scales, Scale Items, Surveys, Analyses, Credit Transactions, Responses) yönetilmekte ve uçtan uca test senaryoları otomatik olarak çalıştırılmaktadır.
+# FullStack-BDD-Demo
 
-🚀 Özellikler
-Rails 8 tabanlı RESTful API (/api/v1 namespace)
-Next.js 13+ App Router ile frontend arayüzü
-Cypress + Cucumber (BDD/Gherkin) test senaryoları
-FFmpeg ile test videolarını birleştirme (isteğe bağlı)Rails–Next.js tam entegrasyon yapısı
-🧩 Teknoloji Yığını
-Katman	Teknoloji
-Backend	Ruby on Rails 8 (REST API)
-Frontend	Next.js 13+, React
-Test	Cypress, Cucumber, Gherkin
-Video İşleme	FFmpeg (isteğe bağlı)
-🧰 Kurulum
-1️⃣ Rails API
+**Ruby on Rails 8 API**, **Next.js (React)** frontend ve **Cypress (BDD/Cucumber)** test altyapısı kullanılarak geliştirilmiş tam yığın (Full Stack) örnek bir projedir.  
+
+Bu proje, 8 farklı modeli (**Users**, **Projects**, **Scales**, **Scale Items**, **Surveys**, **Analyses**, **Credit Transactions**, **Responses**) yönetmekte ve uçtan uca test senaryolarını otomatik olarak çalıştırmaktadır.
+
+---
+
+## 🚀 Özellikler
+
+- ⚙️ **Rails 8** tabanlı RESTful API (`/api/v1` namespace)
+- 🖥️ **Next.js 13+ App Router** ile modern frontend arayüzü
+- 🧪 **Cypress + Cucumber (BDD/Gherkin)** test senaryoları
+- 🎬 **FFmpeg** ile test videolarını birleştirme (isteğe bağlı)
+- 🔗 **Rails–Next.js** tam entegrasyon yapısı
+
+---
+
+## 🧩 Teknoloji Yığını
+
+| Katman | Teknoloji |
+|:-------|:-----------|
+| **Backend** | Ruby on Rails 8 (REST API) |
+| **Frontend** | Next.js 13+, React |
+| **Test** | Cypress, Cucumber, Gherkin |
+| **Video İşleme** | FFmpeg (isteğe bağlı) |
+
+---
+
+## 🧰 Kurulum Adımları
+
+### 1️⃣ Rails API Kurulumu
+
+Aşağıdaki komutlarla Ruby on Rails ortamını kurun:
+
+```bash
 bundle install
+# Gerekirse .env veya config dosyalarını doldurun
+# rails db:migrate
+
 --
 # 🔧 Frontend Kurulumu
 cd frontend
