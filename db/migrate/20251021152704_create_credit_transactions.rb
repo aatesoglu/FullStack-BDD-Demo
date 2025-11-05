@@ -6,7 +6,7 @@ class CreateCreditTransactions < ActiveRecord::Migration[8.0]
       t.integer :balance_after
       t.string :description
       t.references :user, null: false, foreign_key: true
-      t.references :project, null: false, foreign_key: true
+      t.references :project, null: true, foreign_key: true
 
       t.timestamps
     end

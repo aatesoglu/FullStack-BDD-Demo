@@ -1,0 +1,29 @@
+{
+  "name": "rails-survey-e2e-tests",
+  "version": "1.0.0",
+  "scripts": {
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "cypress run",
+    "test:users": "cypress run --spec 'cypress/e2e/features/users.feature'",
+    "test:projects": "cypress run --spec 'cypress/e2e/features/projects.feature'",
+    "test:surveys": "cypress run --spec 'cypress/e2e/features/surveys.feature'",
+    "test:headed": "cypress run --headed --browser chrome --no-exit",
+    "clean": "rm -rf cypress/videos cypress/screenshots"
+  },
+  "devDependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^20.0.0",
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.0",
+    "cypress": "^13.6.0",
+    "cypress-mochawesome-reporter": "^3.8.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "stepDefinitions": [
+      "cypress/support/step_definitions/**/*.{js,ts}"
+    ],
+    "html": {
+      "enabled": true,
+      "output": "cypress/reports/cucumber-html/index.html"
+    }
+  }
+}

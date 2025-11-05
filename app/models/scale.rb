@@ -3,7 +3,7 @@ class Scale < ApplicationRecord
   enum :status, { draft: 0, published: 1, archived: 2 }
 
   # Associations
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :scale_items, dependent: :destroy
   has_many :surveys, dependent: :destroy
 

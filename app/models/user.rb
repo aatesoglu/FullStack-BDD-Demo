@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   # Callbacks
   before_validation :set_default_credits, on: :create
+  before_validation :set_default_role, on: :create
 
   # Methods
   def add_credits(amount, description = nil)
@@ -39,5 +40,9 @@ class User < ApplicationRecord
 
   def set_default_credits
     self.credits_balance ||= 0
+  end
+
+  def set_default_role
+    self.role ||= :researcher
   end
 end

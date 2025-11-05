@@ -44,7 +44,7 @@ class Api::V1::UsersController < ApplicationController
       :name,
       :role,
       :credits_balance,
-      :password_digest
+      :password
     )
   end
 end
